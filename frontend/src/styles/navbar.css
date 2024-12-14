@@ -1,0 +1,29 @@
+nav {
+    background-color:rgba(26, 26, 64, 1);
+    color:rgba(245, 245, 245, 1);
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+
+  }
+  
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 4vw;
+    
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

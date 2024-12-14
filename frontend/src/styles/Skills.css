@@ -1,0 +1,21 @@
+.progressbar-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.skillsSection{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10vh 10vw;
+
+}
+.mySkills{
+    color: rgba(26, 26, 64, 1);
+    h1{
+        font-family: 'Inter';
+        font-size: xx-large;
+
+    }
+}
