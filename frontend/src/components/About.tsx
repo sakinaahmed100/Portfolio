@@ -1,13 +1,14 @@
 import "../styles/About.css"
-import profileImg from "../assets/profilleImg.jpg"
+import coderImg from "../assets/coder.svg"
+import 'animate.css';
+
 export default function About() {
   return (
     <section className="about_div">
         <div className="aboutSection">
-       
         <div className="rightabout">
-            <div className="image-container">
-            <img src={profileImg} alt="" />
+            <div className="image-container animate__headShake animate__slow animate__animated animate__infinite">
+            <img src={coderImg} alt="" />
             </div>
         </div>
         <div className="leftabout">

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/Contact.css';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+
 
 const ContactPage: React.FC = () => {
+const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,8 +46,18 @@ const ContactPage: React.FC = () => {
         Swal.fire({
           title: "Thank you for reaching out! ",
           text: "Your message has been successfully sent. We'll get back to you as soon as possible!",
-          icon: "success"
-        });
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonText: 'Go to Home',
+          cancelButtonText: 'Send Another Message'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate('/');
+          } else {
+            setFormData({ name: '', email: '', message: '' }); // Clear form
+          }
+        });;
+
       } else {
         setResponseMessage(result.message || "Something went wrong.");
         Swal.fire({
