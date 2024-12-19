@@ -1,6 +1,7 @@
 import Button from "./Button";
 import profileImg from "../assets/profilleImg.jpg"
 import "../styles/HeroSection.css"
+import 'animate.css';
 
 function HeroSection() {
     return (
@@ -12,11 +13,11 @@ function HeroSection() {
             </h1>
             <p>Building modern solutions for the web</p>
             <div className="divBtn">
-            <Button/>
-            <Button/>
+            <Button text="Contact" link={"/contact"}/>
+            <Button text="download Cv"/>
             </div>
         </div>
-        <div className="righthero">
+        <div className="righthero  animate__pulse animate__slow animate__animated animate__infinite">
             <div className="image-container">
             <img src={profileImg} alt="" />
             </div>
