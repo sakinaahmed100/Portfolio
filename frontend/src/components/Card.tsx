@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles//Card.css"; // Import the CSS file for styling
+import 'animate.css';
 
 type CardProps = {
   image: string;
@@ -12,7 +13,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ image, title, techStack, description, liveLink, repoLink }) => {
   return (
-    <div className="card">
+    <div className="card animate__bounceInRight animate__animated">
       <div className="card-inner">
         {/* Front of the Card */}
         <div className="card-front">

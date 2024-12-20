@@ -4,6 +4,8 @@ import ecom_project from "../assets/ecom.png"
 import weather from "../assets/weather.jpg"
 import blog from "../assets/blog.jpg"
 import movie from "../assets/movie.jpg"
+import 'animate.css';
+
 
 const Portfolio = () => {
   const projects = [
@@ -43,11 +45,13 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="portfolio">
+    <section>
+    <div className="portfolio animate__flash animate__slow animate__animated">
       {projects.map((project, index) => (
         <Card key={index} {...project} />
       ))}
     </div>
+    </section>
   );
 };
 

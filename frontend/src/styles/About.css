@@ -23,7 +23,7 @@
     background-color: none;
 }
 
-  .leftabout  h1 {
+.leftabout h1 {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -32,36 +32,47 @@
     letter-spacing: 0.04em;
     text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
     color: rgb(81, 119, 163);
-    overflow: hidden; /* Ensures text is hidden outside the element */
-    border-right: 2px solid rgb(255, 253, 253); /* Simulates a cursor */
-    white-space: nowrap; /* Prevents wrapping */
-    margin: 0 auto; /* Centers the text */
+    overflow: hidden;
+    /* Ensures text is hidden outside the element */
+    border-right: 2px solid rgb(255, 253, 253);
+    /* Simulates a cursor */
+    white-space: nowrap;
+    /* Prevents wrapping */
+    margin: 0 auto;
+    /* Centers the text */
     letter-spacing: 2px;
     display: inline-block;
     animation: typing 3s steps(30, end) infinite, blink 0.5s step-end infinite;
 
+}
+
+
+@keyframes typing {
+    from {
+        width: 0;
     }
 
-   
-      @keyframes typing {
-        from { width: 0; }
-        to { width: 50%; }
-      }
-      
-      @keyframes blink {
-        50% { border-color: transparent; }
-      }
-
-    p {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 28px;
-        color: rgb(255, 255, 255);
-
-
+    to {
+        width: 50%;
     }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: rgb(255, 255, 255);
+
+
+}
 
 .divBtn {
     display: flex;
@@ -73,24 +84,24 @@
     width: 30vw;
     background-color: none;
 
+}
 
-    .image-container {
-        width: 100%;
-        /* Or any specific width you need */
-        height: 90%;
-        /* Or any specific height you need */
-        overflow: hidden;
-        /* This ensures that the image is clipped if it overflows the container */
-        position: relative;
-        /* So that the child image can be positioned within it */
-    }
+.rightabout .image-container_about {
+    width: 100%;
+    /* Or any specific width you need */
+    height: 90%;
+    /* Or any specific height you need */
+    overflow: hidden;
+    /* This ensures that the image is clipped if it overflows the container */
+    position: relative;
+    /* So that the child image can be positioned within it */
+}
 
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* This ensures the image covers the entire div */
-        object-position: center;
-        /* This centers the image inside the div */
-    }
+.rightabout .image-container_about img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* This ensures the image covers the entire div */
+    object-position: center;
+    /* This centers the image inside the div */
 }

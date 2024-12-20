@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ProgressBar from 'progressbar.js';
+import 'animate.css';
+import '../styles/Skills.css'; // Import the CSS file
 
 type SkillGaugeProps = {
   skillName: string;
@@ -8,6 +10,7 @@ type SkillGaugeProps = {
 
 const SkillGauge: React.FC<SkillGaugeProps> = ({ skillName, percentage }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false); // Track hover state
   const gaugeRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -70,26 +73,12 @@ const SkillGauge: React.FC<SkillGaugeProps> = ({ skillName, percentage }) => {
   return (
     <div
       ref={gaugeRef}
-      style={{
-        margin: '5vw',
-        position: 'relative',
-        textAlign: 'center',
-      }}
+      className={`skill-gauge-container ${isHovered ? 'animate__headShake animate__animated' : ''}`}
+      onMouseEnter={() => setIsHovered(true)} // Set hover state to true when mouse enters
+      onMouseLeave={() => setIsHovered(false)} // Set hover state to false when mouse leaves
     >
-      <div
-        id={`${skillName}-gauge`}
-        style={{ width: '150px', height: '150px', position: 'relative' }}
-      />
-      <div
-        style={{
-          fontSize: '1.2rem',
-          marginTop: '10px',
-          fontWeight: 'bold',
-          color: 'rgba(26, 26, 64, 1)',
-        }}
-      >
-        {skillName}
-      </div>
+      <div id={`${skillName}-gauge`} className="skill-gauge-circle" />
+      <div className="skill-gauge-name">{skillName}</div>
     </div>
   );
 };

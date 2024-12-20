@@ -17,3 +17,4 @@ export default function Button({ text, link = null }: ButtonProps) {
     )
   );
 }
+

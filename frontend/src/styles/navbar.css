@@ -10,16 +10,24 @@ nav {
     padding: 0 5vw;
 
   }
-  .logo{
-    width: 50px;
-    height: 50px;
-  }
-  .logo img{
-    width: 100%;
-  }
+  .logo {
+    width: 4vw; /* Adjusted for consistent scaling based on viewport width */
+    height: auto; /* Maintain aspect ratio for SVG */
+    overflow: hidden; /* Ensure no overflow issues */
+    display: inline-block; /* Keeps it inline and adjusts spacing nicely */
+}
+
+.logo_img {
+    width: 100%; /* Ensures the SVG scales with the parent container */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures the entire SVG fits within the container */
+    display: block; /* Removes any inline spacing issues */
+}
+
   ul {
     list-style: none;
     display: flex;
+    font-size: larger;
     gap: 4vw;
     
   }

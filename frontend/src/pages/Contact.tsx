@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Contact.css';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import 'animate.css';
 
 
 const ContactPage: React.FC = () => {
@@ -81,9 +82,9 @@ const navigate = useNavigate();
   };
 
   return (
-    <div className="contact-container">
+    <div className="contact-container animate__animated animate__flipInDown">
       <h1>Contact Me</h1>
-      <form onSubmit={handleSubmit} className="contact-form">
+      <form onSubmit={handleSubmit} className="contact-form animate__animated animate__flipInX">
         <div className="input-container">
           <label htmlFor="name">Name</label>
           <input
