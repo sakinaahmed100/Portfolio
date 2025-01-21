@@ -6,10 +6,10 @@ function Navbar() {
   return (
     <nav>
       <div className='logo'>
-      <img src={logo} alt="Logo" className="logo_img" />
+      <img src={logo} alt="Logo" className="logo_img animate__rotateIn animate__slow animate__animated animate__infinite" />
       </div>
 
-      <div>
+      <div className='navLinkDiv'>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/portfolio">Portfolio</Link></li>

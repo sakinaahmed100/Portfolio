@@ -1,24 +1,45 @@
 .heroSection {
-    background: linear-gradient(to bottom, #E8F0F7, #ffffff);
+    position: relative; /* To ensure contained positioning for children */
     display: flex;
-    justify-content: space-around;
-    height: 80vh;
+    justify-content: center;
     align-items: center;
-    padding: 5vh 10vw;
-   
-
-
-}
+    height: 80vh; /* Full viewport height */
+    overflow: hidden;
+  }
+  
+  .heroSection .area {
+    position: absolute; /* Ensure it's behind all content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Push it behind the content */
+  }
+  
+  .heroSection .content {
+    z-index: 1; /* Content should appear above the background */
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 20vh 8vw;
+  }
+  
 
 .lefthero {
     width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .lefthero h1 {
-    font-family: 'Inter';
-    font-style: normal;
+    font-family: "Acme", serif;
     font-weight: 400;
-    font-size: 54px;
+    font-style: normal;
+    /* font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400; */
+    font-size: 5rem;
     line-height: 77px;
     text-align: left;
     letter-spacing: 0.04em;
@@ -26,14 +47,18 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
+.lefthero h1 span{
+    font-weight: bold;
+    color: rgb(11, 14, 199);
+}
 
 .lefthero p {
-    font-family: 'Inter';
+    font-family: "Acme", serif;
+    font-weight: 300;
     font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
+    font-size:2rem;
     line-height: 28px;
-    color: rgba(26, 26, 64, 1);
+    color: rgb(72, 72, 94);
 
 
 
@@ -52,7 +77,7 @@
 .image-container {
     width: 100%;
     /* Define a specific size */
-    height: 90%;
+    height: 100%;
     /* Define a specific size */
     overflow: hidden;
     /* Ensures content is clipped */
@@ -68,7 +93,7 @@
     /* Makes the container circular */
     border: 5px solid transparent;
     /* Space for gradient */
-    background-image: linear-gradient(45deg, #a8c0ff, #d9e4ff, #bde0fe, #a2d2ff);
+    background-image: linear-gradient(45deg, #2762f7, #4c79ec, #438dce, #5391cc);
     /* Soft, modern gradient colors */
     background-origin: border-box;
     background-clip: border-box;
@@ -106,46 +131,172 @@
 
 @keyframes borderGlow {
     0% {
-        background-image: linear-gradient(45deg, #a8c0ff, #d9e4ff, #bde0fe, #a2d2ff);
+        background-image: linear-gradient(45deg, #3c5a99, #4e77c3, #6b9fd9, #5679b6);
     }
 
     10% {
-        background-image: linear-gradient(60deg, #d9e4ff, #bde0fe, #a2d2ff, #a8c0ff);
+        background-image: linear-gradient(60deg, #4e77c3, #6b9fd9, #5679b6, #3c5a99);
     }
 
     20% {
-        background-image: linear-gradient(90deg, #bde0fe, #a2d2ff, #a8c0ff, #d9e4ff);
+        background-image: linear-gradient(90deg, #6b9fd9, #5679b6, #3c5a99, #4e77c3);
     }
 
     30% {
-        background-image: linear-gradient(120deg, #a2d2ff, #a8c0ff, #d9e4ff, #bde0fe);
+        background-image: linear-gradient(120deg, #5679b6, #3c5a99, #4e77c3, #6b9fd9);
     }
 
     40% {
-        background-image: linear-gradient(150deg, #a8c0ff, #d9e4ff, #bde0fe, #a2d2ff);
+        background-image: linear-gradient(150deg, #3c5a99, #4e77c3, #6b9fd9, #5679b6);
     }
 
     50% {
-        background-image: linear-gradient(180deg, #d9e4ff, #bde0fe, #a2d2ff, #a8c0ff);
+        background-image: linear-gradient(180deg, #4e77c3, #6b9fd9, #5679b6, #3c5a99);
     }
 
     60% {
-        background-image: linear-gradient(210deg, #bde0fe, #a2d2ff, #a8c0ff, #d9e4ff);
+        background-image: linear-gradient(210deg, #6b9fd9, #5679b6, #3c5a99, #4e77c3);
     }
 
     70% {
-        background-image: linear-gradient(240deg, #a2d2ff, #a8c0ff, #d9e4ff, #bde0fe);
+        background-image: linear-gradient(240deg, #5679b6, #3c5a99, #4e77c3, #6b9fd9);
     }
 
     80% {
-        background-image: linear-gradient(270deg, #a8c0ff, #d9e4ff, #bde0fe, #a2d2ff);
+        background-image: linear-gradient(270deg, #3c5a99, #4e77c3, #6b9fd9, #5679b6);
     }
 
     90% {
-        background-image: linear-gradient(300deg, #d9e4ff, #bde0fe, #a2d2ff, #a8c0ff);
+        background-image: linear-gradient(300deg, #4e77c3, #6b9fd9, #5679b6, #3c5a99);
     }
 
     100% {
-        background-image: linear-gradient(330deg, #bde0fe, #a2d2ff, #a8c0ff, #d9e4ff);
+        background-image: linear-gradient(330deg, #6b9fd9, #5679b6, #3c5a99, #4e77c3);
     }
+}
+
+
+
+.area{
+    background: #cdd9eb;  
+    background: -webkit-linear-gradient(to left, #32367e, #4e54c8);  
+    width: 100vw;
+    height:100vh;
+    
+   
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(86, 91, 158, 0.616);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
 }

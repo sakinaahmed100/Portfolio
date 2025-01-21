@@ -1,43 +1,73 @@
 nav {
-    background-color:rgba(26, 26, 64, 1);
-    color:rgba(245, 245, 245, 1);
-    padding: 1rem;
-    display: flex;
-    width: 100%;
-    height: 10vh;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5vw;
-
-  }
-  .logo {
-    width: 4vw; /* Adjusted for consistent scaling based on viewport width */
-    height: auto; /* Maintain aspect ratio for SVG */
-    overflow: hidden; /* Ensure no overflow issues */
-    display: inline-block; /* Keeps it inline and adjusts spacing nicely */
+  background-color: rgba(26, 26, 64, 1);
+  color: rgba(245, 245, 245, 1);
+  padding: 1rem;
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  justify-content: space-between;
+  align-items: center; /* Centers children vertically */
+  padding: 0 5vw;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.295); /* Adds a subtle shadow */
+}
+.logo {
+  width: 3vw; /* Scales with viewport width */
+  height: auto;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .logo_img {
-    width: 100%; /* Ensures the SVG scales with the parent container */
-    height: auto; /* Maintains aspect ratio */
-    object-fit: contain; /* Ensures the entire SVG fits within the container */
-    display: block; /* Removes any inline spacing issues */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.navLinkDiv{
+  display: flex;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 4vw;
+  margin: 0;
+  padding: 0;
+  align-items: center; /* Ensures vertical alignment for list items */
 }
 
-  ul {
-    list-style: none;
-    display: flex;
-    font-size: larger;
-    gap: 4vw;
-    
-  }
-  
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+li {
+  display: flex; /* Ensures the items inside li are flexed */
+  align-items: center; /* Centers child elements vertically */
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem; /* Adds padding for better clickable area */
+  font-weight: 500;
+  font-size: 1.5rem;
+  display: inline-flex; /* Allows alignment within flex containers */
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally (if needed) */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  position: relative; /* Required for pseudo-elements */
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Position underline at the bottom */
+  height: 2px;
+  width: 0;
+  background-color: #1e90ff; /* Highlight color */
+  transition: width 0.3s ease; /* Smooth width expansion */
+}
+
+a:hover::after {
+  width: 100%; /* Full-width underline on hover */
+}
+
+a:hover {
+  color: #1e90ff; /* Change text color on hover */
+}
