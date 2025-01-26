@@ -1,62 +1,106 @@
 import React, { useEffect, useState, useRef } from 'react';
-import SkillGauge from './SkillGauge';
-import "../styles/Skills.css"
+import "../styles/Skills.css";
 import 'animate.css';
+import bg_video from "../assets/background_vid_skills.mp4";
 
 const Skills: React.FC = () => {
-  const skills = [
-    { name: 'HTML', percentage: 90 },
-    { name: 'CSS', percentage: 80 },
-    { name: 'JavaScript', percentage: 70 },
-    { name: 'React', percentage: 85 },
-    { name: 'TypeScript', percentage: 75 },
-  ];
-
   const [isInView, setIsInView] = useState(false);
-  const gaugeDivRef = useRef<HTMLDivElement | null>(null);
+  const skillsSectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true); // Element is in view, add animations
-        } else {
-          setIsInView(false); // Element is out of view, remove animations (optional)
-        }
-      },
-      { threshold: 0.5 } // Trigger when 50% of the element is visible
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.5 }
     );
 
-    if (gaugeDivRef.current) {
-      observer.observe(gaugeDivRef.current);
+    if (skillsSectionRef.current) {
+      observer.observe(skillsSectionRef.current);
     }
 
-    return () => {
-      if (gaugeDivRef.current) {
-        observer.unobserve(gaugeDivRef.current);
-      }
-    };
+    return () => observer.disconnect();
   }, []);
 
+  const skillCategories = [
+    {
+      id: "skills1",
+      title: "Frontend",
+      colorClass: "skills",
+      items: [
+        "HTML",
+        "CSS3",
+        "REACT",
+        "JavaScript (ES6+)",
+        "TYPESCRIPT",
+        ["Responsive Design", "Redux/Context API", "SQLite"]
+      ],
+    },
+    {
+      id: "skills2",
+      title: "Backend",
+      colorClass: "skills2",
+      items: [
+        "Python (FastAPI)",
+        "MongoDB",
+        "SQLite",
+        "Node.js (Basic)",
+        "Axios" ,
+        ["RESTful APIs"]
+      ],
+    },
+    {
+      id: "skills3",
+      title: "Tools",
+      colorClass: "skills3",
+      items: [
+        "VS Code",
+        "Git/GitHub",
+        "Postman",
+        "JUPYTER/COLAB NOTEBOOK",
+        "Netlify",
+        ["Vercel"]
+      ],
+    },
+  ];
+
   return (
-    <section className='skillsSection'>
-      <div className='mySkills'>
+    <section className="skillsSection">
+      <video className="backgroundVideo" autoPlay loop muted playsInline>
+        <source src={bg_video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="mySkills">
         <h1>My Skills</h1>
       </div>
       <div
-        ref={gaugeDivRef}
-        className={`gaugeDiv ${isInView ? 'animate__pulse animate__slow animate__animated' : ''}`}
+        ref={skillsSectionRef}
+        className={`content_skills ${isInView ? 'animate__pulse animate__slow animate__animated' : ''}`}
       >
-        {skills.map((skill) => (
-          <SkillGauge
-            key={skill.name}
-            skillName={skill.name}
-            percentage={skill.percentage}
-          />
-        ))}
+        <div className="profile-skills">
+          {skillCategories.map(({ id,  colorClass, items }) => (
+            <div key={id}>
+              <input type="checkbox" id={id} />
+              <label htmlFor={id}></label>
+              <ul className={`skills ${colorClass}`}>
+                {items.map((item, index) =>
+                  Array.isArray(item) ? (
+                    <li key={index} className="more">
+                      <input type="checkbox" id={`${id}-more`} />
+                      <label htmlFor={`${id}-more`}></label>
+                      <div>{item.map((subItem) => <span key={subItem}>{subItem}</span>)}</div>
+                    </li>
+                  ) : (
+                    <li key={index}><span>{item}</span></li>
+                  )
+                )}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default Skills;
+
+

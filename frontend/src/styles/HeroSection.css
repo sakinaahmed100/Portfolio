@@ -75,9 +75,9 @@
 }
 
 .image-container {
-    width: 100%;
+    width: 25vw;
     /* Define a specific size */
-    height: 100%;
+    height: 25vw;
     /* Define a specific size */
     overflow: hidden;
     /* Ensures content is clipped */
